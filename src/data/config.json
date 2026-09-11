@@ -12,6 +12,12 @@
     }
   },
   "categoryLabels": {
+    "champion_mechanics": "英雄机制",
+    "spell_interactions": "技能交互",
+    "crowd_control": "控制机制",
+    "projectile": "弹道机制",
+    "map_mechanics": "地图机制",
+    "turret": "防御塔机制",
     "mechanics": "英雄机制",
     "interactions": "技能交互",
     "map": "地图机制",
@@ -23,16 +29,21 @@
     "esports": "职业赛事",
     "abilities": "英雄技能",
     "trivia": "冷知识",
-    "doghouse": "狗窝题"
+    "doghouse": "狗窝题",
+    "patch_knowledge": "版本考古",
+    "player_history": "玩家历史",
+    "worlds_history": "职业赛事",
+    "career_stats": "职业数据",
+    "summoner_spells": "召唤师技能"
   },
   "categoryGroups": [
-    { "categories": ["mechanics"], "weight": 20 },
-    { "categories": ["interactions", "abilities"], "weight": 20 },
-    { "categories": ["map", "vision"], "weight": 15 },
+    { "categories": ["champion_mechanics"], "weight": 20 },
+    { "categories": ["spell_interactions", "crowd_control", "projectile"], "weight": 20 },
+    { "categories": ["map_mechanics", "vision", "turret"], "weight": 15 },
     { "categories": ["items"], "weight": 15 },
-    { "categories": ["history"], "weight": 10 },
-    { "categories": ["rift", "summoner"], "weight": 10 },
-    { "categories": ["esports"], "weight": 5 },
-    { "categories": ["doghouse", "trivia"], "weight": 5 }
+    { "categories": ["patch_knowledge", "player_history"], "weight": 10 },
+    { "categories": ["summoner_spells"], "weight": 10 },
+    { "categories": ["career_stats"], "weight": 5 },
+    { "categories": ["doghouse", "worlds_history"], "weight": 5 }
   ]
 }

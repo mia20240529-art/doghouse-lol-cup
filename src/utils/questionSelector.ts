@@ -45,9 +45,13 @@ export function isQuestion(value: unknown): value is Question {
 }
 
 export function getValidQuestions(data: unknown): Question[] {
-  if (!Array.isArray(data)) return [];
+  const source = Array.isArray(data)
+    ? data
+    : data && typeof data === 'object' && Array.isArray((data as { questions?: unknown }).questions)
+      ? (data as { questions: unknown[] }).questions
+      : [];
   const seen = new Set<string>();
-  return data.filter((value): value is Question => {
+  return source.filter((value): value is Question => {
     if (
       !isQuestion(value) ||
       !value.enabled ||

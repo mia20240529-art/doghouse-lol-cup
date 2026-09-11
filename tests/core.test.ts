@@ -36,9 +36,9 @@ const q: Question = {
   source: "测试夹具",
 };
 describe("题库准入与抽题", () => {
-  it("正式占位数据全部禁用、未审核", () => {
-    expect(getValidQuestions(rawQuestions)).toEqual([]);
-    expect(rawQuestions.every((q) => !q.enabled && !q.verified)).toBe(true);
+  it("完整题库包含 150 道已启用、已审核题目", () => {
+    expect(getValidQuestions(rawQuestions)).toHaveLength(150);
+    expect(rawQuestions.questions.every((q) => q.enabled && q.verified)).toBe(true);
   });
   it("过滤未审核、未启用、无效答案、重复 id", () => {
     expect(
