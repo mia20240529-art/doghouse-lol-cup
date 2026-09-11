@@ -1,0 +1,59 @@
+[
+  {
+    "id": "placeholder_single_001",
+    "enabled": false,
+    "verified": false,
+    "category": "mechanics",
+    "difficulty": "hell",
+    "type": "single",
+    "patch": "",
+    "question": "【占位模板】待狗窝委员会提供并审核题目。",
+    "options": ["待填写选项 A", "待填写选项 B", "待填写选项 C", "待填写选项 D"],
+    "answer": 0,
+    "score": 150,
+    "timeLimit": 20,
+    "explanation": "占位答案 0 仅用于说明索引结构，不代表任何 LOL 事实；审核前不得启用。",
+    "source": "待提供"
+  },
+  {
+    "id": "placeholder_multiple_001",
+    "enabled": false,
+    "verified": false,
+    "category": "items",
+    "difficulty": "hard",
+    "type": "multiple",
+    "patch": "",
+    "question": "【占位模板】待提供多选题。",
+    "options": ["待填写 A", "待填写 B", "待填写 C", "待填写 D"],
+    "answer": [0, 2],
+    "explanation": "仅演示数组格式，待人工填写与审核。",
+    "source": "待提供"
+  },
+  {
+    "id": "placeholder_boolean_001",
+    "enabled": false,
+    "verified": false,
+    "category": "map",
+    "difficulty": "insane",
+    "type": "boolean",
+    "patch": "",
+    "question": "【占位模板】待提供判断题。",
+    "answer": true,
+    "explanation": "仅演示布尔格式，待人工填写与审核。",
+    "source": "待提供"
+  },
+  {
+    "id": "placeholder_scenario_001",
+    "enabled": false,
+    "verified": false,
+    "category": "interactions",
+    "difficulty": "doghouse",
+    "type": "scenario",
+    "patch": "",
+    "question": "【占位模板】待提供情景机制题。",
+    "options": ["待填写 A", "待填写 B", "待填写 C", "待填写 D"],
+    "answer": 0,
+    "explanation": "情景机制题按单选判分，待人工填写与审核。",
+    "source": "待提供"
+  }
+]

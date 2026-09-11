@@ -1,0 +1,38 @@
+{
+  "questionCount": 30,
+  "difficulties": {
+    "hard": { "label": "困难", "score": 100, "timeLimit": 15, "rank": 1 },
+    "hell": { "label": "地狱", "score": 150, "timeLimit": 20, "rank": 2 },
+    "insane": { "label": "逆天", "score": 200, "timeLimit": 30, "rank": 3 },
+    "doghouse": {
+      "label": "狗窝绝密",
+      "score": 300,
+      "timeLimit": 20,
+      "rank": 4
+    }
+  },
+  "categoryLabels": {
+    "mechanics": "英雄机制",
+    "interactions": "技能交互",
+    "map": "地图机制",
+    "vision": "视野机制",
+    "items": "装备理解",
+    "history": "版本考古",
+    "rift": "召唤师峡谷机制",
+    "summoner": "召唤师技能",
+    "esports": "职业赛事",
+    "abilities": "英雄技能",
+    "trivia": "冷知识",
+    "doghouse": "狗窝题"
+  },
+  "categoryGroups": [
+    { "categories": ["mechanics"], "weight": 20 },
+    { "categories": ["interactions", "abilities"], "weight": 20 },
+    { "categories": ["map", "vision"], "weight": 15 },
+    { "categories": ["items"], "weight": 15 },
+    { "categories": ["history"], "weight": 10 },
+    { "categories": ["rift", "summoner"], "weight": 10 },
+    { "categories": ["esports"], "weight": 5 },
+    { "categories": ["doghouse", "trivia"], "weight": 5 }
+  ]
+}
