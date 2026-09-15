@@ -31,19 +31,19 @@
     "trivia": "冷知识",
     "doghouse": "狗窝题",
     "patch_knowledge": "版本考古",
-    "player_history": "玩家历史",
+    "player_history": "选手历史",
     "worlds_history": "职业赛事",
     "career_stats": "职业数据",
     "summoner_spells": "召唤师技能"
   },
   "categoryGroups": [
-    { "categories": ["champion_mechanics"], "weight": 20 },
+    { "categories": ["champion_mechanics"], "weight": 15 },
     { "categories": ["spell_interactions", "crowd_control", "projectile"], "weight": 20 },
-    { "categories": ["map_mechanics", "vision", "turret"], "weight": 15 },
-    { "categories": ["items"], "weight": 15 },
-    { "categories": ["patch_knowledge", "player_history"], "weight": 10 },
-    { "categories": ["summoner_spells"], "weight": 10 },
-    { "categories": ["career_stats"], "weight": 5 },
-    { "categories": ["doghouse", "worlds_history"], "weight": 5 }
+    { "categories": ["map_mechanics", "vision", "turret"], "weight": 10 },
+    { "categories": ["items"], "weight": 8 },
+    { "categories": ["patch_knowledge", "player_history"], "weight": 12 },
+    { "categories": ["summoner_spells"], "weight": 5 },
+    { "categories": ["career_stats"], "weight": 12 },
+    { "categories": ["worlds_history"], "weight": 18 }
   ]
 }
