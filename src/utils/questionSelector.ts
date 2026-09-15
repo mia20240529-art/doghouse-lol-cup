@@ -1,6 +1,33 @@
 import config from "../data/config.json";
 import type { Question } from "../types/question";
 
+const excludedFromCompetition = new Set([
+  // 基础英雄/技能常识，保留在150题母库，但正式随机局不再抽取
+  "mech_061",
+  "mech_062",
+  "mech_063",
+  "mech_064",
+  "mech_065",
+  "mech_070",
+  "mech_072",
+  "mech_080",
+  "mech_085",
+  "mech_088",
+  "mech_089",
+  "mech_090",
+  "mech_091",
+  // 过于直接的阵容/位置记忆题
+  "esports_043",
+  "esports_044",
+  "esports_045",
+  "esports_046",
+  "esports_048",
+  "esports_050",
+  "esports_051",
+  "esports_053",
+  "esports_054"
+]);
+
 export function isQuestion(value: unknown): value is Question {
   if (!value || typeof value !== "object") return false;
   const q = value as Record<string, unknown>;
@@ -47,7 +74,7 @@ export function isQuestion(value: unknown): value is Question {
 export function getValidQuestions(data: unknown): Question[] {
   const source = Array.isArray(data)
     ? data
-    : data && typeof data === 'object' && Array.isArray((data as { questions?: unknown }).questions)
+    : data && typeof data === "object" && Array.isArray((data as { questions?: unknown }).questions)
       ? (data as { questions: unknown[] }).questions
       : [];
   const seen = new Set<string>();
@@ -64,6 +91,15 @@ export function getValidQuestions(data: unknown): Question[] {
   });
 }
 
+function getCompetitionQuestions(data: unknown): Question[] {
+  return getValidQuestions(data).filter(
+    (q) =>
+      q.difficulty !== "hard" &&
+      q.category !== "doghouse" &&
+      !excludedFromCompetition.has(q.id),
+  );
+}
+
 export function shuffle<T>(items: readonly T[], random = Math.random): T[] {
   const output = [...items];
   for (let i = output.length - 1; i > 0; i--) {
@@ -78,7 +114,8 @@ export function selectQuestions(
   count = config.questionCount,
   random = Math.random,
 ): Question[] {
-  const pool = shuffle(getValidQuestions(data), random);
+  // 正式狗窝杯只从“地狱/逆天”高难池抽题；150题母库仍完整保留，方便后续审核与替换。
+  const pool = shuffle(getCompetitionQuestions(data), random);
   const size = Math.min(Math.max(0, Math.floor(count)), pool.length);
   if (size === 0) return [];
   const groups = shuffle(config.categoryGroups, random);
