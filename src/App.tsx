@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Trophy } from "lucide-react";
 import rawQuestions from "./data/questions.json";
 import config from "./data/config.json";
+import { applyQuestionOverrides } from "./data/questionOverrides";
 import { getValidQuestions, selectQuestions } from "./utils/questionSelector";
 import { saveResult } from "./utils/storage";
 import type { Question } from "./types/question";
@@ -13,7 +14,8 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import History from "./pages/History";
 type Page = "home" | "setup" | "rules" | "quiz" | "result" | "history";
-const available = getValidQuestions(rawQuestions);
+const auditedQuestions = applyQuestionOverrides(rawQuestions);
+const available = getValidQuestions(auditedQuestions);
 export default function App() {
   const [page, setPage] = useState<Page>("home");
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -76,7 +78,7 @@ export default function App() {
           count={Math.min(available.length, config.questionCount)}
           onRules={() => go("rules")}
           onEnter={(name) => {
-            const selected = selectQuestions(rawQuestions);
+            const selected = selectQuestions(auditedQuestions);
             if (!selected.length) return;
             setNickname(name);
             setQuestions(selected);
